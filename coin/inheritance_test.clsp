@@ -1,0 +1,55 @@
+(mod 
+    (        
+        voting_list
+        power_voting
+    )
+
+    (defconstant CREATE_COIN 51)
+    ; (defconstant VOTING_THRESHOLD 1)
+    ; (defconstant MASTER_LIST ("hash1"))
+    ; (defconstant VOTING_THRESHOLD 2)
+    ; (defconstant MASTER_LIST ("hash1" "hash2" "hash3"))
+    (defconstant VOTING_THRESHOLD 3)
+    (defconstant MASTER_LIST ("hash1" "hash2" "hash3" "hash4" "hash5"))
+    (defconstant VOTING_COUNT 0)
+    (defconstant IS_RETAIN_VOTE_POWER 1)
+    (defconstant POWER_VOTER "master_hash")
+
+    (defun verify_voting_list (voting_list master_list voting_threshold roting_count)
+        (if (r master_list)
+            (verify_voting_list voting_list (r master_list) voting_threshold
+                (+ roting_count (verify_each_voting voting_list (f master_list)))
+            )
+            (if (> 
+                (+ roting_count (verify_each_voting voting_list (f master_list))) 
+                (- voting_threshold 1)) q (x)
+            )
+        )
+    )
+
+    (defun verify_each_voting (voting_list master)
+        (if (= master (f (f voting_list)))
+            (if (f (r (f voting_list))) q ())
+            (verify_each_voting (r voting_list) master)
+        )
+    )
+
+    (defun-inline verify_power_voting (power_voter power_voting)
+        (if (= (f power_voting) power_voter)
+            (if (f (r power_voting)) q (x))
+            (x)
+        )
+    )
+
+    (defun verify (voting_list master_list voting_threshold roting_count is_retain_vote_power power_voter power_voting)
+        (if (is_retain_vote_power)
+            (if (verify_power_voting power_voter power_voting)
+                (verify_voting_list voting_list master_list voting_threshold roting_count)
+                (x)
+            )
+            (verify_voting_list voting_list master_list voting_threshold roting_count)
+        )
+    )
+
+    (verify voting_list MASTER_LIST VOTING_THRESHOLD VOTING_COUNT IS_RETAIN_VOTE_POWER POWER_VOTER power_voting)
+) 
