@@ -1,0 +1,1 @@
+{"amount": 10, "puzzle_hash": "3b5b0e02820b4606d8a593b053955ea4ed42be177a33fa8954d6fa3564183fca", "puzzle_reveal": "ff02ffff01ff02ffff01ff04ffff04ff02ffff04ff05ffff04ff0bff80808080ff8080ffff04ffff0133ff018080ff0180", "address": "txch18ddsuq5zpdrqdk99jwc989275nk590sh0gel4z256mar2eqc8l9qlskx65", "curry_cmd": "cdv clsp curry ../../coin/CGT.clsp.hex "}

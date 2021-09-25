@@ -1,0 +1,7 @@
+{
+    "coin_file": "../../coin/CGT.clsp",
+    "curry_param_list": [
+    ],
+    "amount": 10,
+    "out_path": "../../out/coin/CGT_info.json"
+}
