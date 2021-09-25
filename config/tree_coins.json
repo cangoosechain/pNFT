@@ -1,0 +1,9 @@
+{
+    "sign": "puzhash",
+    "out_path": "../../out/tree_coins_info.json",
+    "items": [
+        "fd9eade83ce90cd923950a3b391a29dcb4865709986393ed7e27b3613f3a8f51",
+        "39597b9d57f46a9d78c4f008e1a48f949556ff40e115530c69cbdb38df157cae",
+        "c630da6b8769e8488cbbdc17226f8d278231611289220cc55d257cc74c2efe8d"
+    ]
+}
