@@ -31,3 +31,5 @@ This project is licensed under the Apache License 2.0 License - see the LICENSE.
 * [chia.net/](https://www.chia.net/)
 * [github.com/Chia-Network](https://github.com/Chia-Network)
 * [keybase.io/team/chia_network.public](https://keybase.io/team/chia_network.public)
+* [@bramcohen](https://twitter.com/bramcohen)
+* [@chia_project](https://twitter.com/chia_project)
