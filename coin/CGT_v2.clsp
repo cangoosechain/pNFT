@@ -1,0 +1,24 @@
+(mod 
+    (
+        input_cmd
+        this_coin_puzzlehash
+        this_coin_amount
+        spend_to_puzzlehash
+        spend_amount
+    )
+
+    (defconstant CREATE_COIN 51)
+    (defconstant spend_cmd 1)
+
+    (defun-inline spend (this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+            (list CREATE_COIN this_coin_puzzlehash (- this_coin_amount spend_amount))
+        )
+    )
+
+    (if (= input_cmd spend_cmd)
+        (spend this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+        (x)
+    )
+)

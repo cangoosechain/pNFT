@@ -1,0 +1,36 @@
+(mod 
+    (
+        operator_puzzlehash
+        input_cmd
+        this_coin_puzzlehash
+        this_coin_amount
+        spend_to_puzzlehash
+        spend_amount
+    )
+
+    (defconstant CREATE_COIN 51)
+    (defconstant spend_cmd 1)
+    (defconstant MASTER_PUZZLEHASH_LIST ("hash" "hash1" "hash2"))
+
+    (defun verify (MASTER_PUZZLEHASH_LIST operator_puzzlehash)
+        (if (= operator_puzzlehash (f MASTER_PUZZLEHASH_LIST))
+            (f MASTER_PUZZLEHASH_LIST)
+            (verify (r MASTER_PUZZLEHASH_LIST) operator_puzzlehash)
+        )
+    )
+
+    (defun-inline spend (this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+            (list CREATE_COIN this_coin_puzzlehash (- this_coin_amount spend_amount))
+        )
+    )
+
+    (if (= input_cmd spend_cmd)
+        (if (verify MASTER_PUZZLEHASH_LIST operator_puzzlehash)
+            (spend this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+            (x)
+        )
+        (x)
+    )
+)

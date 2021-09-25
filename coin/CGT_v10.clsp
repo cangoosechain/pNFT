@@ -1,0 +1,66 @@
+(mod 
+    (
+        MASTER_PUZZLEHASH_LIST
+        
+        this_coin_puzzlehash
+        this_coin_amount
+        spend_to_puzzlehash
+        spend_amount
+        input_cmd
+        voting_puzzlehash_list
+    )
+
+    (defconstant CREATE_COIN 51)
+    (defconstant spend_cmd 100)
+    (defconstant destroy_cmd 101)
+
+    (defun verify_puzzlehash_list (voting_puzzlehash_list puzzlehash_list)
+        (if (verify_each_puzzlehash voting_puzzlehash_list (f puzzlehash_list))
+            (if (r puzzlehash_list)
+                (verify_puzzlehash_list voting_puzzlehash_list (r puzzlehash_list))
+                (f puzzlehash_list)
+            )
+            (x)
+        )
+    )
+
+    (defun verify_each_puzzlehash (puzzlehash_list puzzlehash)
+        (if (= puzzlehash (f puzzlehash_list))
+            (f puzzlehash_list)
+            (verify_each_puzzlehash (r puzzlehash_list) puzzlehash)
+        )
+    )
+
+    (defun-inline spend (this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+            (if (> (- this_coin_amount spend_amount) 0)
+                (list CREATE_COIN this_coin_puzzlehash (- this_coin_amount spend_amount))
+                (x)
+            )
+        )
+    )
+
+    (defun-inline destroy (this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+        )
+    )
+
+    (if (> spend_amount 0)
+        (if (= input_cmd spend_cmd)
+            (if (verify_puzzlehash_list voting_puzzlehash_list MASTER_PUZZLEHASH_LIST)
+                (spend this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+                (x)
+            )
+            (if (= input_cmd destroy_cmd)
+                (if (verify_puzzlehash_list voting_puzzlehash_list MASTER_PUZZLEHASH_LIST)
+                    (destroy this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+                    (x)
+                )
+                (x)
+            )
+        )
+        (x)
+    )
+)

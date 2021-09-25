@@ -1,0 +1,92 @@
+(mod 
+    (
+        MASTER_LIST
+        VOTING_THRESHOLD
+        IS_RETAIN_VOTE_POWER
+        POWER_VOTER
+        
+        this_coin_puzzlehash
+        this_coin_amount
+        spend_to_puzzlehash
+        spend_amount
+        voting_list
+        power_voting
+        input_cmd
+        message_puzzlehash
+    )
+
+    (defconstant CREATE_COIN 51)
+    (defconstant VOTING_COUNT 0)
+    (defconstant spend_cmd 100)
+    (defconstant destroy_cmd 101)
+
+    (defun verify_voting_list (voting_list master_list voting_threshold roting_count)
+        (if (r master_list)
+            (verify_voting_list voting_list (r master_list) voting_threshold
+                (+ roting_count (verify_each_voting voting_list (f master_list)))
+            )
+            (if (> 
+                (+ roting_count (verify_each_voting voting_list (f master_list))) 
+                (- voting_threshold 1)) q (x)
+            )
+        )
+    )
+
+    (defun verify_each_voting (voting_list master)
+        (if (= master (f (f voting_list)))
+            (if (f (r (f voting_list))) q ())
+            (verify_each_voting (r voting_list) master)
+        )
+    )
+
+    (defun-inline verify_power_voting (power_voter power_voting)
+        (if (= (f power_voting) power_voter)
+            (if (f (r power_voting)) q (x))
+            (x)
+        )
+    )
+
+    (defun verify (voting_list master_list voting_threshold roting_count is_retain_vote_power power_voter power_voting)
+        (if (is_retain_vote_power)
+            (if (verify_power_voting power_voter power_voting)
+                (verify_voting_list voting_list master_list voting_threshold roting_count)
+                (x)
+            )
+            (verify_voting_list voting_list master_list voting_threshold roting_count)
+        )
+    )
+
+    (defun-inline spend (this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+            (if (> (- this_coin_amount spend_amount) 0)
+                (list CREATE_COIN this_coin_puzzlehash (- this_coin_amount spend_amount))
+                (x)
+            )
+        )
+    )
+
+    (defun-inline destroy (spend_to_puzzlehash spend_amount message_puzzlehash)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+            (list CREATE_COIN message_puzzlehash 0)
+        )
+    )
+
+    (if (> spend_amount 0)
+        (if (= input_cmd spend_cmd)
+            (if (verify voting_list MASTER_LIST VOTING_THRESHOLD VOTING_COUNT IS_RETAIN_VOTE_POWER POWER_VOTER power_voting)
+                (spend this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+                (x)
+            )
+            (if (= input_cmd destroy_cmd)
+                (if (verify voting_list MASTER_LIST VOTING_THRESHOLD VOTING_COUNT IS_RETAIN_VOTE_POWER POWER_VOTER power_voting)
+                    (destroy spend_to_puzzlehash spend_amount message_puzzlehash)
+                    (x)
+                )
+                (x)
+            )
+        )
+        (x)
+    )
+)
