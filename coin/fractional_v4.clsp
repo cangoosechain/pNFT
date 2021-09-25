@@ -1,0 +1,22 @@
+(mod 
+    (
+        split_info
+    )
+
+    (defconstant CREATE_COIN 51)
+
+    (defun split (split_info)
+        (if (r split_info)
+            (c
+                (list CREATE_COIN (f (f split_info)) (f (r (f split_info))))
+                (split (r split_info))
+            )
+            (list 
+                (list CREATE_COIN (f (f split_info)) (f (r (f split_info))))
+            )
+            
+        )
+    )
+
+    (split split_info)
+)

@@ -1,0 +1,7 @@
+{
+    "coin_file": "../../coin/fractional_v0.clsp",
+    "curry_param_list": [
+    ],
+    "amount": 10,
+    "out_path": "../../out/coin/fractional_v0_info.json"
+}

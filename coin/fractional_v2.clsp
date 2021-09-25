@@ -1,0 +1,16 @@
+(mod 
+    (
+        spend_to_puzzlehash
+        spend_amount
+    )
+
+    (defconstant CREATE_COIN 51)
+
+    (defun-inline merge (spend_to_puzzlehash spend_amount)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+        )
+    )
+
+    (merge spend_to_puzzlehash spend_amount)    
+)

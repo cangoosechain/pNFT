@@ -1,0 +1,32 @@
+{
+    "coin_spends": [
+        {
+            "coin":{
+                "amount": 7,
+                "parent_coin_info": "0xef9c5443d98d0ac21aa04c419659e034aa7e5db6f26a64e75ab0b7c2446f2092",
+                "puzzle_hash": "0x58fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0"
+            },
+            "puzzle_reveal": "ff02ffff01ff02ffff01ff04ffff04ff02ffff04ff17ffff04ff2fff80808080ffff04ffff04ff02ffff04ff05ffff04ffff11ff0bff2f80ff80808080ff808080ffff04ffff0133ff018080ff0180",
+            "solution": "ffa058fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0ff07ffa058fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0ff0a80"
+        },
+        {
+            "coin":{
+                "amount": 3,
+                "parent_coin_info": "0xef9c5443d98d0ac21aa04c419659e034aa7e5db6f26a64e75ab0b7c2446f2092",
+                "puzzle_hash": "0x58fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0"
+            },
+            "puzzle_reveal": "ff02ffff01ff02ffff01ff04ffff04ff02ffff04ff17ffff04ff2fff80808080ffff04ffff04ff02ffff04ff05ffff04ffff11ff0bff2f80ff80808080ff808080ffff04ffff0133ff018080ff0180",
+            "solution": "ffa058fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0ff03ffa058fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0ff8080"
+        },
+        {
+            "coin":{
+                "amount": 0,
+                "parent_coin_info": "0x1681654ddba3239cda0cec49821dc986b269cdc33bb64852dc4ce6d7f999acb5",
+                "puzzle_hash": "0x58fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0"
+            },
+            "puzzle_reveal": "ff02ffff01ff02ffff01ff04ffff04ff02ffff04ff17ffff04ff2fff80808080ffff04ffff04ff02ffff04ff05ffff04ffff11ff0bff2f80ff80808080ff808080ffff04ffff0133ff018080ff0180",
+            "solution": "ffa058fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0ff80ffa058fb39aae50484504518ee3757bb116126b38b4e488bf722b7329963b44594d0ff8080"
+        }
+    ],
+    "aggregated_signature": "c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+}

@@ -1,0 +1,7 @@
+{
+    "amount": 10,
+    "puzzle_hash": "c9db5985ab736f5ed6a0c8b949e6ab0fdf11b7eec59d976e4f15aa76d910108a",
+    "puzzle_reveal": "ff02ffff01ff02ffff01ff04ffff04ff02ffff04ff17ffff04ff2fff80808080ffff04ffff02ffff03ffff15ffff11ff0bff2f80ff8080ffff01ff04ff02ffff04ff05ffff04ffff11ff0bff2f80ff80808080ffff01ff088080ff0180ff808080ffff04ffff0133ff018080ff0180",
+    "address": "txch1e8d4npdtwdh4a44qezu5ne4tpl03rdlwckwewmj0zk48dkgszz9qc6uqe5",
+    "curry_cmd": "cdv clsp curry ../../coin/pNFT_v0.clsp.hex "
+}

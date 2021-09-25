@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+*.out
+out*.json
+out*.txt
+out_test*.py
+
+# Unit test / coverage reports
+.cache
+.pytest_cache/
+
+# pyenv
+.python-version
+.eggs
+.venv
+venv
+activate
+.DS_Store
+
+# mypy
+.mypy_cache/
+
+# Editors
+.vscode
+.idea
+.history
+
+# Temp
+temp*/
+
+
+# Hex
+# *.hex
+*.sym

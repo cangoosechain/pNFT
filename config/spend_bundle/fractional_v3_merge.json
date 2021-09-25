@@ -1,0 +1,23 @@
+{
+    "coin_spends": [
+        {
+            "coin":{
+                "amount": 7,
+                "parent_coin_info": "0x67851af2b88e8979ecfac12b2b2b5175fc5c142129ecd538b506bbf029ae3351",
+                "puzzle_hash": "0x91bb6acc29641d3349e3c97edac1210b7695815f9cb36adb3f5d43449305ab07"
+            },
+            "puzzle_reveal": "ff02ffff01ff02ffff01ff02ffff03ffff09ff5fff0e80ffff01ff04ffff04ff04ffff04ff17ffff04ff2fff80808080ffff04ffff02ffff03ffff15ffff11ff0bff2f80ff8080ffff01ff04ff04ffff04ff05ffff04ffff11ff0bff2f80ff80808080ffff01ff088080ff0180ff808080ffff01ff02ffff03ffff09ff5fff0a80ffff01ff04ffff04ff04ffff04ff17ffff04ff2fff80808080ff8080ffff01ff088080ff018080ff0180ffff04ffff01ff33ff6664ff018080ff0180",
+            "solution": "ffa091bb6acc29641d3349e3c97edac1210b7695815f9cb36adb3f5d43449305ab07ff07ffa091bb6acc29641d3349e3c97edac1210b7695815f9cb36adb3f5d43449305ab07ff0aff6680"
+        },
+        {
+            "coin":{
+                "amount": 3,
+                "parent_coin_info": "0x67851af2b88e8979ecfac12b2b2b5175fc5c142129ecd538b506bbf029ae3351",
+                "puzzle_hash": "0x91bb6acc29641d3349e3c97edac1210b7695815f9cb36adb3f5d43449305ab07"
+            },
+            "puzzle_reveal": "ff02ffff01ff02ffff01ff02ffff03ffff09ff5fff0e80ffff01ff04ffff04ff04ffff04ff17ffff04ff2fff80808080ffff04ffff02ffff03ffff15ffff11ff0bff2f80ff8080ffff01ff04ff04ffff04ff05ffff04ffff11ff0bff2f80ff80808080ffff01ff088080ff0180ff808080ffff01ff02ffff03ffff09ff5fff0a80ffff01ff04ffff04ff04ffff04ff17ffff04ff2fff80808080ff8080ffff01ff088080ff018080ff0180ffff04ffff01ff33ff6664ff018080ff0180",
+            "solution": "ffa091bb6acc29641d3349e3c97edac1210b7695815f9cb36adb3f5d43449305ab07ff03ffa091bb6acc29641d3349e3c97edac1210b7695815f9cb36adb3f5d43449305ab07ff80ff6680"
+        }
+    ],
+    "aggregated_signature": "c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+}

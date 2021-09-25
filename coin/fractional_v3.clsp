@@ -1,0 +1,37 @@
+(mod 
+    (
+        this_coin_puzzlehash
+        this_coin_amount
+        spend_to_puzzlehash
+        spend_amount
+        input_cmd
+    )
+
+    (defconstant CREATE_COIN 51)
+    (defconstant spend_cmd 100)
+    (defconstant merge_cmd 102)
+
+    (defun-inline spend (this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+            (if (> (- this_coin_amount spend_amount) 0)
+                (list CREATE_COIN this_coin_puzzlehash (- this_coin_amount spend_amount))
+                (x)
+            )
+        )
+    )
+
+    (defun-inline merge (spend_to_puzzlehash spend_amount)
+        (list
+            (list CREATE_COIN spend_to_puzzlehash spend_amount)
+        )
+    )
+
+    (if (= input_cmd spend_cmd)
+        (spend this_coin_puzzlehash this_coin_amount spend_to_puzzlehash spend_amount)
+        (if (= input_cmd merge_cmd)
+            (merge spend_to_puzzlehash spend_amount)
+            (x)
+        )
+    )
+)
